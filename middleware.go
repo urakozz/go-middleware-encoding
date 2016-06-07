@@ -136,13 +136,14 @@ func (w *gzipResponseWriter) Write(b []byte) (int, error) {
 		w.WriteHeader(http.StatusOK)
 	}
 
-	writer := w.ResponseWriter.(http.ResponseWriter)
 
-	count, errW := w.encoderWriter.NewWriter(w, w.level).Write(b)
+	encoder := w.encoder.NewWriter(w.ResponseWriter.(io.Writer), w.level)
+
+	count, errW := encoder.Write(b)
 	var errF error
-	if f, ok := w.encoderWriter.(Flusher); ok {
-		errF = f.Flush()
-	}
+	//if f, ok := encoder.(Flusher); ok {
+	//	errF = f.Flush()
+	//}
 	if errW != nil {
 		return count, errW
 	}
@@ -150,8 +151,6 @@ func (w *gzipResponseWriter) Write(b []byte) (int, error) {
 		return count, errF
 	}
 	return count, nil
-
-	return writer.Write(b)
 }
 
 var _ rest.Middleware = (*EncodingMiddleware)(nil)
