@@ -43,12 +43,12 @@ func init() {
 // headers when supported by the client. It must be wrapped by TimerMiddleware for the
 // compression time to be captured. And It must be wrapped by RecorderMiddleware for the
 // compressed BYTES_WRITTEN to be captured.
-type GzipMiddleware struct {
+type EncodingMiddleware struct {
 	Level int
 }
 
 // MiddlewareFunc makes GzipMiddleware implement the Middleware interface.
-func (mw *GzipMiddleware) MiddlewareFunc(h rest.HandlerFunc) rest.HandlerFunc {
+func (mw *EncodingMiddleware) MiddlewareFunc(h rest.HandlerFunc) rest.HandlerFunc {
 	return func(w rest.ResponseWriter, r *rest.Request) {
 
 		encoder := SelectEncoder(r.Header.Get("Accept-Encoding"))
