@@ -154,4 +154,4 @@ func (w *gzipResponseWriter) Write(b []byte) (int, error) {
 	return writer.Write(b)
 }
 
-var _ rest.Middleware = (*GzipMiddleware)(nil)
+var _ rest.Middleware = (*EncodingMiddleware)(nil)
