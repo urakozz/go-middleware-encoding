@@ -137,7 +137,7 @@ func (w *gzipResponseWriter) Write(b []byte) (int, error) {
 	}
 
 
-	encoder := w.encoder.NewWriter(w.ResponseWriter.(io.Writer), w.level)
+	encoder := w.encoderWriter.NewWriter(w.ResponseWriter.(http.ResponseWriter), w.level)
 
 	count, errW := encoder.Write(b)
 	var errF error
