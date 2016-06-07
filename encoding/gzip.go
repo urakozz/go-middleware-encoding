@@ -3,9 +3,9 @@
 package encoding
 
 import (
-	"compress/flate"
+	"github.com/klauspost/compress/flate"
 	"io"
-	"compress/gzip"
+	"github.com/klauspost/compress/gzip"
 )
 
 type EncoderDeflate struct {}
