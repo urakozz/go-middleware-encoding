@@ -141,9 +141,9 @@ func (w *gzipResponseWriter) Write(b []byte) (int, error) {
 
 	count, errW := encoder.Write(b)
 	var errF error
-	//if f, ok := encoder.(Flusher); ok {
-	//	errF = f.Flush()
-	//}
+	if f, ok := encoder.(Flusher); ok {
+		errF = f.Flush()
+	}
 	if errW != nil {
 		return count, errW
 	}
