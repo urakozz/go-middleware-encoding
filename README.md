@@ -45,7 +45,7 @@ func main() {
 }
 ```
 
-#### 2. Using C Gzip and Brotli
+#### 2. Using (deflate, C-gzip, brotli)
 ```go
 package main
 
