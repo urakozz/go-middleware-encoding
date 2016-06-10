@@ -1,5 +1,5 @@
-// Copyright 2016 Home24 AG. All rights reserved.
-// Proprietary license.
+// Copyright 2016 Yury Kozyrev
+
 package cencoding
 
 import (
