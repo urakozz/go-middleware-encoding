@@ -5,7 +5,7 @@ package cencoding
 import (
 	"io"
 	"gopkg.in/kothar/brotli-go.v0/enc"
-	"github.com/urakozz/go-middleware-encoding"
+	"github.com/urakozz/go-middleware-encoding/encoding"
 )
 
 type EncoderCBrotli struct {}
