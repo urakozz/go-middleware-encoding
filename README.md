@@ -10,7 +10,7 @@ Content encoding middleware for the go-json-rest
 ### Optional C encoders:
 
  - C Gzip Encoder (RFC 1952)
- - C Brolti encoder (no RFC yet)
+ - C Brotli encoder (no RFC yet)
 
  
 ### Examples
